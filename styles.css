@@ -70,6 +70,7 @@ h1 {
     flex-direction: column;
     align-items: center;
     margin-bottom: 60px;
+    min-height: 80px;
 }
 
 .flashcard {
@@ -85,6 +86,7 @@ h1 {
     width: 90%;
     max-width: 300px;
     min-width: 200px;
+    min-height: 80px;
     text-align: center;
     position: relative;
     font-size: 1.2em;
@@ -104,6 +106,7 @@ h1 {
     text-align: center;
     transition: transform 0.6s;
     transform-style: preserve-3d;
+    min-height:80px;
 }
 
 .flashcard.flipped .flashcard-inner {
