@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apprentissage de Vocabulaire - Ajouter du Vocabulaire</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Ajouter du Vocabulaire</h1>
+        <div id="content">
+            <form id="addForm">
+                <label for="word">Mot:</label>
+                <input type="text" id="word" name="word" required>
+                <label for="translation">Traduction:</label>
+                <input type="text" id="translation" name="translation" required>
+                <label for="example">Exemple d'utilisation:</label>
+                <input type="text" id="example" name="example" required>
+                <button type="submit">Ajouter</button>
+            </form>
+            <button class="home-button" onclick="navigateTo('index.html')">Revenir à l'accueil</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
