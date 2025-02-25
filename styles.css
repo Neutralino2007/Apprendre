@@ -106,7 +106,7 @@ h1 {
     text-align: center;
     transition: transform 0.6s;
     transform-style: preserve-3d;
-    min-heigth: 400px;
+    min-heigth: 100px;
 }
 
 .flashcard.flipped .flashcard-inner {
