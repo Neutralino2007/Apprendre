@@ -86,7 +86,7 @@ h1 {
     width: 90%;
     max-width: 300px;
     min-width: 200px;
-    min-height: 400px;
+    min-height: 100px;
     text-align: center;
     position: relative;
     font-size: 1.2em;
