@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apprentissage de Vocabulaire - Citations Françaises</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Citations Françaises</h1>
+        <!-- Boutons de navigation vers les catégories -->
+        <div class="categories">
+            <button class="category-button" onclick="scrollToCategory('ti')">Le TI</button>
+            <button class="category-button" onclick="scrollToCategory('ttp')">Le TTP</button>
+            <button class="category-button" onclick="scrollToCategory('sct')">Les SCT</button>
+            <button class="category-button" onclick="scrollToCategory('s')">Les S</button>
+        </div>
+        <div id="content">
+            <div id="citationsList"></div>
+            <button class="home-button" onclick="navigateTo('index.html')">Revenir à l'accueil</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
