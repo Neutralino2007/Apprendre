@@ -5,6 +5,10 @@ let vocabulary = JSON.parse(localStorage.getItem('vocabulary')) || {
 };
 
 function navigateTo(page) {
+    const language = document.getElementById('languageSelect').value;
+    const direction = document.getElementById('directionSelect').value;
+    localStorage.setItem('selectedLanguage', language);
+    localStorage.setItem('selectedDirection', direction);
     window.location.href = page;
 }
 
@@ -23,6 +27,24 @@ document.addEventListener('DOMContentLoaded', function() {
         startTest();
     } else if (path === 'view.html') {
         viewVocabulary();
+    } else if (path === 'add.html') {
+        document.getElementById('addForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const language = localStorage.getItem('selectedLanguage');
+            const word = document.getElementById('word').value;
+            const translation = document.getElementById('translation').value;
+            const example = document.getElementById('example').value;
+            if (word && translation && example) {
+                const vocabulary = JSON.parse(localStorage.getItem('vocabulary')) || {};
+                vocabulary[language] = vocabulary[language] || [];
+                vocabulary[language].push({ word, translation, example });
+                localStorage.setItem('vocabulary', JSON.stringify(vocabulary));
+                alert("Vocabulaire ajouté avec succès!");
+                document.getElementById('addForm').reset();
+            } else {
+                alert("Veuillez remplir tous les champs.");
+            }
+        });
     }
 });
 
@@ -126,29 +148,6 @@ function runTest(words, direction) {
 
     showQuestion();
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    const path = window.location.pathname.split('/').pop();
-    if (path === 'add.html') {
-        document.getElementById('addForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const language = localStorage.getItem('selectedLanguage');
-            const word = document.getElementById('word').value;
-            const translation = document.getElementById('translation').value;
-            const example = document.getElementById('example').value;
-            if (word && translation && example) {
-                const vocabulary = JSON.parse(localStorage.getItem('vocabulary')) || {};
-                vocabulary[language] = vocabulary[language] || [];
-                vocabulary[language].push({ word, translation, example });
-                localStorage.setItem('vocabulary', JSON.stringify(vocabulary));
-                alert("Vocabulaire ajouté avec succès!");
-                document.getElementById('addForm').reset();
-            } else {
-                alert("Veuillez remplir tous les champs.");
-            }
-        });
-    }
-});
 
 function viewVocabulary() {
     const language = localStorage.getItem('selectedLanguage');
