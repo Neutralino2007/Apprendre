@@ -89,12 +89,7 @@ h1 {
     position: relative;
     font-size: 1.2em;
     word-wrap: break-word;
-    overflow: hidden;
-    max-width: 800px;
-    min-width: 250px;
-    max-height: 800px;
-    min-height: 600px;
-    
+    overflow-y: auto; /* Permet le défilement vertical si nécessaire */
 }
 
 .flashcard:hover {
