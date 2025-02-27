@@ -573,3 +573,91 @@ document.addEventListener('DOMContentLoaded', function() {
         displayCitations();
     }
 });
+
+// Ajouts
+let currentQuestionIndex = 0;
+let score = 0;
+let questions = [];
+
+function startTest() {
+    const numQuestions = parseInt(document.getElementById('numQuestions').value, 10);
+    const direction = document.getElementById('direction').value;
+    const language = 'english';
+    const words = vocabulary[language];
+
+    if (numQuestions > words.length) {
+        alert("Le nombre de questions demandé est supérieur au nombre de mots disponibles.");
+        return;
+    }
+
+    // Sélectionner aléatoirement des mots sans répétition
+    questions = [];
+    const selectedIndices = new Set();
+    while (selectedIndices.size < numQuestions) {
+        const randomIndex = Math.floor(Math.random() * words.length);
+        selectedIndices.add(randomIndex);
+    }
+    selectedIndices.forEach(index => questions.push(words[index]));
+
+    // Initialiser le test
+    currentQuestionIndex = 0;
+    score = 0;
+    document.getElementById('test-setup').style.display = 'none';
+    document.getElementById('test-container').style.display = 'block';
+    document.getElementById('results').style.display = 'none';
+    showQuestion(direction);
+}
+
+function showQuestion(direction) {
+    const questionElement = document.getElementById('question');
+    const feedbackElement = document.getElementById('feedback');
+    const nextButton = document.getElementById('next-button');
+
+    if (currentQuestionIndex >= questions.length) {
+        showResults();
+        return;
+    }
+
+    const currentQuestion = questions[currentQuestionIndex];
+    questionElement.innerHTML = direction === 'toTarget'
+        ? `Traduisez : ${currentQuestion.word}`
+        : `Quel est le mot pour : ${currentQuestion.translation}`;
+
+    feedbackElement.innerHTML = '';
+    nextButton.style.display = 'none';
+    document.getElementById('answer').value = '';
+    document.getElementById('answer').focus();
+}
+
+function submitAnswer() {
+    const userAnswer = document.getElementById('answer').value.trim().toLowerCase();
+    const currentQuestion = questions[currentQuestionIndex];
+    const correctAnswer = currentQuestion[currentQuestionIndex % 2 === 0 ? 'translation' : 'word'].toLowerCase();
+
+    if (userAnswer === correctAnswer) {
+        score++;
+        document.getElementById('feedback').innerHTML = 'Correct !';
+    } else {
+        document.getElementById('feedback').innerHTML = `Faux. La réponse correcte était : ${correctAnswer}`;
+    }
+
+    document.getElementById('next-button').style.display = 'block';
+}
+
+function nextQuestion() {
+    currentQuestionIndex++;
+    const direction = document.getElementById('direction').value;
+    showQuestion(direction);
+}
+
+function showResults() {
+    document.getElementById('test-container').style.display = 'none';
+    document.getElementById('results').style.display = 'block';
+    document.getElementById('score').innerHTML = `Votre score : ${score} / ${questions.length}`;
+}
+
+function restartTest() {
+    document.getElementById('test-setup').style.display = 'block';
+    document.getElementById('results').style.display = 'none';
+}
+
