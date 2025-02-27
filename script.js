@@ -471,10 +471,10 @@ function displayFlashcards(words, direction) {
         card.innerHTML = `
             <div class="flashcard-inner">
                 <div class="flashcard-front">
-                    <p>${direction === 'toTarget' ? words[index].translation : words[index].word}</p>
+                    <p>${direction === 'toTarget' ? words[index].word : words[index].translation}</p>
                 </div>
                 <div class="flashcard-back">
-                    <p>${direction === 'toTarget' ? words[index].word : words[index].translation}</p>
+                    <p>${direction === 'toTarget' ? words[index].translation : words[index].word}</p>
                 </div>
             </div>
         `;
@@ -550,29 +550,6 @@ function displayCitations() {
     `;
 }
 
-// Chargement des pages
-document.addEventListener('DOMContentLoaded', function() {
-    const path = window.location.pathname.split('/').pop();
-    if (path === 'learn.html') {
-        const language = 'english';
-        const direction = 'toTarget'; // Vous pouvez changer cela selon vos besoins
-        const words = vocabulary[language];
-        if (!words || words.length === 0) {
-            document.getElementById('content').innerHTML = "<p>Aucun vocabulaire disponible pour cette langue.</p>";
-            return;
-        }
-        displayFlashcards(words, direction);
-    } else if (path === 'test.html') {
-        startTest();
-    } else if (path === 'view.html') {
-        viewVocabulary();
-    } else if (path === 'expressions.html') {
-        displayExpressions();
-    } else if (path === 'citations.html') {
-        displayCitations();
-    }
-});
-
 // Ajouts
 let currentQuestionIndex = 0;
 let score = 0;
@@ -580,7 +557,6 @@ let questions = [];
 
 function startTest() {
     const numQuestions = parseInt(document.getElementById('numQuestions').value, 20));
-    const direction = document.getElementById('direction').value;
     const language = 'english';
     const words = vocabulary[language];
 
@@ -604,10 +580,10 @@ function startTest() {
     document.getElementById('test-setup').style.display = 'none';
     document.getElementById('test-container').style.display = 'block';
     document.getElementById('results').style.display = 'none';
-    showQuestion(direction);
+    showQuestion();
 }
 
-function showQuestion(direction) {
+function showQuestion() {
     const questionElement = document.getElementById('question');
     const feedbackElement = document.getElementById('feedback');
     const nextButton = document.getElementById('next-button');
@@ -618,7 +594,7 @@ function showQuestion(direction) {
     }
 
     const currentQuestion = questions[currentQuestionIndex];
-    questionElement.innerHTML = direction === 'toTarget'
+    currentQuestionIndex % 2 === 0
         ? `Traduisez : ${currentQuestion.word}`
         : `Quel est le mot pour : ${currentQuestion.translate}`;
 
@@ -628,10 +604,10 @@ function showQuestion(direction) {
     document.getElementById('answer').focus();
 }
 
-function submitAnswer(direction) {
+function submitAnswer() {
     const userAnswer = document.getElementById('answer').value.trim().toLowerCase();
     const currentQuestion = questions[currentQuestionIndex];
-    const correctAnswer = currentQuestion[direction === 'toTarget' ? 'translation' : 'word'].toLowerCase();
+    const correctAnswer = currentQuestion[currentQuestionIndex % 2 === 0 ? 'translation' : 'word'].toLowerCase();
 
     if (userAnswer === correctAnswer) {
         score++;
@@ -646,7 +622,7 @@ function submitAnswer(direction) {
 function nextQuestion() {
     currentQuestionIndex++;
     const direction = document.getElementById('direction').value;
-    showQuestion(direction);
+    showQuestion();
 }
 
 function showResults() {
@@ -660,3 +636,25 @@ function restartTest() {
     document.getElementById('results').style.display = 'none';
 }
 
+// Chargement des pages
+document.addEventListener('DOMContentLoaded', function() {
+    const path = window.location.pathname.split('/').pop();
+    if (path === 'learn.html') {
+        const language = 'english';
+        const direction = 'toSource'; // Vous pouvez changer cela selon vos besoins
+        const words = vocabulary[language];
+        if (!words || words.length === 0) {
+            document.getElementById('content').innerHTML = "<p>Aucun vocabulaire disponible pour cette langue.</p>";
+            return;
+        }
+        displayFlashcards(words, direction);
+    } else if (path === 'test.html') {
+        startTest();
+    } else if (path === 'view.html') {
+        viewVocabulary();
+    } else if (path === 'expressions.html') {
+        displayExpressions();
+    } else if (path === 'citations.html') {
+        displayCitations();
+    }
+});
