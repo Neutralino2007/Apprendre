@@ -472,10 +472,10 @@ function displayFlashcards(words, direction) {
         card.innerHTML = `
             <div class="flashcard-inner">
                 <div class="flashcard-front">
-                    <p>${direction === 'toTarget' ? words[index].word : words[index].translation}</p>
+                    <p>${direction === 'toTarget' ? words[index].translation : words[index].word}</p>
                 </div>
                 <div class="flashcard-back">
-                    <p>${direction === 'toTarget' ? words[index].translation : words[index].word}</p>
+                    <p>${direction === 'toTarget' ? words[index].word : words[index].translation}</p>
                 </div>
             </div>
         `;
