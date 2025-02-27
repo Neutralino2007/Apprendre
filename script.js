@@ -181,7 +181,7 @@ const vocabulary = {
         { word: "Outgrowth of sth", translation: "Un résultat de qch, une conséquence finale", example: "" },
         { word: "Outline", translation: "Plan", example: "" },
         { word: "Outperform", translation: "Réussir mieux", example: "" },
-        { word: "Outspoken answer", translation: “Une réponse franche", example: "" },
+        { word: "Outspoken answer", translation: "Une réponse franche", example: "" },
         { word: "Outstanding", translation: "Remarquable", example: "" },
         { word: "Overhaul", translation: "Remanier", example: "" },
         { word: "Overloaded", translation: "Surchargé", example: "" },
@@ -441,7 +441,7 @@ const expressions = [
     { expression: "To sit on the fence", translation: "Etre indécis"},
     { expression: "A turf war", translation: "Une guerre de territoire"},
     { expression: "To vote with your feet", translation: "Partir pour montrer son désaccord"},
-    { expression: "Cross the threshold", translation: "Franchir le seuil", example: "" },
+    { expression: "Cross the threshold", translation: "Franchir le seuil", example: "" }
 ];
 
 const citations = {
