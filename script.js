@@ -230,7 +230,7 @@ const vocabulary = {
         { word: "Thereof", translation: "De celui-ci", example: "" },
         { word: "Thoroughly", translation: "Minutieusement", example: "" },
         { word: "Thwart", translation: "Déjouer", example: "" },
-        { word: "To cause a stir", translation: "Faire sensation"},
+        { word: "To cause a stir", translation: "Faire sensation", example: ""},
         { word: "Toll", translation: "Bilan", example: "" },
         { word: "Trickle", translation: "Une poignée de", example: "" },
         { word: "Trickle in", translation: "Arriver au compte goutte", example: "" },
