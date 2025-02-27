@@ -579,7 +579,7 @@ let score = 0;
 let questions = [];
 
 function startTest() {
-    const numQuestions = parseInt(document.getElementById('numQuestions').value, 10);
+    const numQuestions = parseInt(document.getElementById('numQuestions').value, prompt("combien de questions voulez-vous?"));
     const direction = document.getElementById('direction').value;
     const language = 'english';
     const words = vocabulary[language];
@@ -619,8 +619,8 @@ function showQuestion(direction) {
 
     const currentQuestion = questions[currentQuestionIndex];
     questionElement.innerHTML = direction === 'toTarget'
-        ? `Traduisez : ${currentQuestion.word}`
-        : `Quel est le mot pour : ${currentQuestion.translation}`;
+        ? `Traduisez : ${currentQuestion[currentQuestionIndex % 2 === 0 ? 'translation' : 'word']}`
+        : `Quel est le mot pour : ${currentQuestion[currentQuestionIndex % 2 === 1 ? 'translation' : 'word']}`;
 
     feedbackElement.innerHTML = '';
     nextButton.style.display = 'none';
