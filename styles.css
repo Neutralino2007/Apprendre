@@ -264,3 +264,15 @@ h1 {
     background-color: #0056b3;
     transform: scale(1.05);
 }
+
+.central-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+#test-setup, #test-container, #results {
+    text-align: center;
+    margin: 20px;
+}
