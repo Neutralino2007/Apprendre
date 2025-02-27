@@ -612,7 +612,6 @@ function submitAnswer() {
 
 function nextQuestion() {
     currentQuestionIndex++;
-    const direction = document.getElementById('direction').value;
     showQuestion();
 }
 
