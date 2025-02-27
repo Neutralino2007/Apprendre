@@ -579,7 +579,7 @@ let score = 0;
 let questions = [];
 
 function startTest() {
-    const numQuestions = parseInt(document.getElementById('numQuestions').value, prompt("combien de questions voulez-vous?"));
+    const numQuestions = parseInt(document.getElementById('numQuestions').value, 20));
     const direction = document.getElementById('direction').value;
     const language = 'english';
     const words = vocabulary[language];
@@ -619,8 +619,8 @@ function showQuestion(direction) {
 
     const currentQuestion = questions[currentQuestionIndex];
     questionElement.innerHTML = direction === 'toTarget'
-        ? `Traduisez : ${currentQuestion[currentQuestionIndex % 2 === 0 ? 'translation' : 'word']}`
-        : `Quel est le mot pour : ${currentQuestion[currentQuestionIndex % 2 === 1 ? 'translation' : 'word']}`;
+        ? `Traduisez : ${currentQuestion.word}`
+        : `Quel est le mot pour : ${currentQuestion.translate}`;
 
     feedbackElement.innerHTML = '';
     nextButton.style.display = 'none';
@@ -628,10 +628,10 @@ function showQuestion(direction) {
     document.getElementById('answer').focus();
 }
 
-function submitAnswer() {
+function submitAnswer(direction) {
     const userAnswer = document.getElementById('answer').value.trim().toLowerCase();
     const currentQuestion = questions[currentQuestionIndex];
-    const correctAnswer = currentQuestion[currentQuestionIndex % 2 === 0 ? 'translation' : 'word'].toLowerCase();
+    const correctAnswer = currentQuestion[direction === 'toTarget' ? 'translation' : 'word'].toLowerCase();
 
     if (userAnswer === correctAnswer) {
         score++;
