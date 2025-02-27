@@ -147,7 +147,7 @@ const vocabulary = {
         { word: "Make a point", translation: "Faire une remarque", example: "" },
         { word: "Make headway", translation: "Faire des progrès dans son entreprise", example: "" },
         { word: "Make inroads", translation: "Faire des progrès", example: "" },
-        { word: "Make up for", translation: "Se faire pardoner pour, rattraper le temps perdu”, example: "" },
+        { word: "Make up for", translation: "Se faire pardoner pour, rattraper le temps perdu", example: "" },
         { word: "Meddling", translation: "Ingérence", example: "" },
         { word: "Midst", translation: "Au millieu de", example: "" },
         { word: "Mire", translation: "Bourbier", example: "" },
