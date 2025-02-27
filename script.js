@@ -431,15 +431,6 @@ const citations = {
 // ************************************************************
 // ************************************************************
 
-
-
-
-
-// Fonction pour naviguer entre les pages
-function navigateTo(page) {
-    window.location.href = page;
-}
-
 // Fonction pour naviguer vers une catégorie spécifique
 function scrollToCategory(category) {
     const element = document.getElementById(category);
