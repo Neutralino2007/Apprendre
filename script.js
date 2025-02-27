@@ -556,7 +556,7 @@ let score = 0;
 let questions = [];
 
 function startTest() {
-    const numQuestions = parseInt(document.getElementById('numQuestions').value, 20);
+    const numQuestions = parseInt(document.getElementById('numQuestions').value, 10);
     const language = 'english';
     const words = vocabulary[language];
 
@@ -596,7 +596,7 @@ function showQuestion() {
     const currentQuestion = questions[currentQuestionIndex];
     questionElement.innerHTML = currentQuestionIndex % 2 === 0
         ? `Traduisez : ${currentQuestion.word}`
-        : `Quel est le mot pour : ${currentQuestion.translate}`;
+        : `Quel est le mot pour : ${currentQuestion.translation}`;
 
     feedbackElement.innerHTML = '';
     nextButton.style.display = 'none';
