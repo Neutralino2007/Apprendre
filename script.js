@@ -1,7 +1,7 @@
 // Données stockées directement dans le script
 const vocabulary = {
     english: [
-        { word: "A millstone, yoke around your neck", translation: "Problème qui deviant un fardeau”, example: "" },
+        { word: "A millstone, yoke around you neck", translation: "Problème qui devient un fardeau", example: "" },
         { word: "Aboveboard", translation: "Honnête, légal", example: "" },
         { word: "Advocate", translation: "Prôner", example: "" },
         { word: "Aghast", translation: "Atterré", example: "" },
