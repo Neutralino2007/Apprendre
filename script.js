@@ -639,8 +639,6 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         displayFlashcards(words, direction);
-    } else if (path === 'test.html') {
-        startTest();
     } else if (path === 'view.html') {
         viewVocabulary();
     } else if (path === 'expressions.html') {
