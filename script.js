@@ -1,18 +1,7 @@
-//Donnees 
+// Donnees 
 let vocabulary = {};
 let expressions = [];
 let citations = {};
-
-fetch('data.json')
-    .then(response => response.json())
-    .then(data => {
-        vocabulary = data.vocabulary;
-        expressions = data.expressions;
-        citations = data.citations;
-    })
-    .catch(error => console.error('Erreur lors du chargement des données JSON:', error));
-// ************************************************************
-// ************************************************************
 
 // Fonction pour naviguer vers une catégorie spécifique
 function scrollToCategory(category) {
@@ -129,6 +118,7 @@ let currentQuestionIndex = 0;
 let score = 0;
 let questions = [];
 
+// Fonction pour démarrer le test
 function startTest() {
     const numQuestions = parseInt(document.getElementById('numQuestions').value, 10);
     const language = 'english';
@@ -157,6 +147,7 @@ function startTest() {
     showQuestion();
 }
 
+// Fonction pour afficher une question
 function showQuestion() {
     const questionElement = document.getElementById('question');
     const feedbackElement = document.getElementById('feedback');
@@ -178,6 +169,7 @@ function showQuestion() {
     document.getElementById('answer').focus();
 }
 
+// Fonction pour soumettre une réponse
 function submitAnswer() {
     const userAnswer = document.getElementById('answer').value.trim().toLowerCase();
     const currentQuestion = questions[currentQuestionIndex];
@@ -193,17 +185,20 @@ function submitAnswer() {
     document.getElementById('next-button').style.display = 'block';
 }
 
+// Fonction pour passer à la question suivante
 function nextQuestion() {
     currentQuestionIndex++;
     showQuestion();
 }
 
+// Fonction pour afficher les résultats
 function showResults() {
     document.getElementById('test-container').style.display = 'none';
     document.getElementById('results').style.display = 'block';
     document.getElementById('score').innerHTML = `Votre score : ${score} / ${questions.length}`;
 }
 
+// Fonction pour redémarrer le test
 function restartTest() {
     document.getElementById('test-setup').style.display = 'block';
     document.getElementById('results').style.display = 'none';
@@ -211,21 +206,30 @@ function restartTest() {
 
 // Chargement des pages
 document.addEventListener('DOMContentLoaded', function() {
-    const path = window.location.pathname.split('/').pop();
-    if (path === 'learn.html') {
-        const language = 'english';
-        const direction = 'toSource'; // Vous pouvez changer cela selon vos besoins
-        const words = vocabulary[language];
-        if (!words || words.length === 0) {
-            document.getElementById('content').innerHTML = "<p>Aucun vocabulaire disponible pour cette langue.</p>";
-            return;
-        }
-        displayFlashcards(words, direction);
-    } else if (path === 'view.html') {
-        viewVocabulary();
-    } else if (path === 'expressions.html') {
-        displayExpressions();
-    } else if (path === 'citations.html') {
-        displayCitations();
-    }
+    fetch('data.json')
+        .then(response => response.json())
+        .then(data => {
+            vocabulary = data.vocabulary;
+            expressions = data.expressions;
+            citations = data.citations;
+
+            const path = window.location.pathname.split('/').pop();
+            if (path === 'learn.html') {
+                const language = 'english';
+                const direction = 'toSource'; // Vous pouvez changer cela selon vos besoins
+                const words = vocabulary[language];
+                if (!words || words.length === 0) {
+                    document.getElementById('content').innerHTML = "<p>Aucun vocabulaire disponible pour cette langue.</p>";
+                    return;
+                }
+                displayFlashcards(words, direction);
+            } else if (path === 'view.html') {
+                viewVocabulary();
+            } else if (path === 'expressions.html') {
+                displayExpressions();
+            } else if (path === 'citations.html') {
+                displayCitations();
+            }
+        })
+        .catch(error => console.error('Erreur lors du chargement des données JSON:', error));
 });
