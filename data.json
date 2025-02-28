@@ -1,5 +1,3 @@
-// Données stockées
-
 { "vocabulary" : {
     "english": [
         { "word": "A millstone, yoke around you neck", "translation": "Problème qui devient un fardeau", "example": "The debt became a millstone around his neck, preventing him from pursuing his dreams." },
@@ -359,8 +357,7 @@
         { "word": "Yield", "translation": "Céder", "example": "" },
         { "word": "Younder", "translation": "Là-bas", "example": "" }
     ]
-  }
-},
+  },
 
 "expressions" : [
     { "expression": "To backfire on", "translation": "Se retourner contre" },
@@ -443,8 +440,7 @@
     { "expression": "A turf war", "translation": "Une guerre de territoire"},
     { "expression": "To vote with your feet", "translation": "Partir pour montrer son désaccord"},
     { "expression": "Cross the threshold", "translation": "Franchir le seuil", "example": "" }
-]
-},
+],
 
 "citations" : {
     "ti": [
@@ -522,5 +518,5 @@
         "-pleines d’une horreur innée de l’homme, nous détestons l’hymen des enfants d’Egyptos et leur sacrilège démence » supp p 51 : communauté du destin",
         "-Je t’invite à gagner la galère aux flancs courbes , et vite! nul retard! Quand on traîne une rebelle, on n’épargne pas ses cheveux » supp p 81"
     ]
-}
+    }
 }
