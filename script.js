@@ -539,7 +539,7 @@ function displayFlashcards(words, direction) {
         <div id="flashcard-container" class="flashcard-container"></div>
         <div class="buttons">
             <button class="next-button" onclick="nextCard()">Mot suivant</button>
-            <button class="home-button" onclick="navigateTo('index.html')">Revenir à l'accueil</button>
+            <button class="home-button" onclick="window.location.href='index.html'">Revenir à l'accueil</button>
         </div>
     `;
     const container = document.getElementById('flashcard-container');
