@@ -110,6 +110,8 @@ function displayCitations() {
         ${citations.sct.map(citation => `<div class="citation-item">${citation}</div>`).join('')}
         <h2 id="s">Les S</h2>
         ${citations.s.map(citation => `<div class="citation-item">${citation}</div>`).join('')}
+        <h2 id="s">Autres citations</h2>
+        ${citations.a.map(citation => `<div class="citation-item">${citation}</div>`).join('')}
     `;
 }
 
