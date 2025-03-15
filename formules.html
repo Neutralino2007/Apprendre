@@ -29,6 +29,77 @@
         
         <div id="probas" class="content">
             <h2>Probas</h2>
+<p>
+Lois discrètes
+\[
+\begin{array}{|l|c|c|c|c|c|c|}
+\hline
+\text{Nom} & X(\Omega) & P(X = k) & E(X) & V(X) & G(t) & \phi(t) \\
+\hline
+\text{Uniforme} & [\![1,n]\!] & \frac{1}{n} & \frac{n+1}{2} & \frac{n^2-1}{12} & \frac{t(1-t^n)}{n(1-t)} & \frac{e^{t}(1-e^{nt})}{n(1-e^t)} \\
+\hline
+\text{Bernoulli} & \{0,1\} & p^k(1-p)^{1-k} & p & p(1-p) & 1-p+pt & 1-p+pe^{it} \\
+\hline
+\text{Binomiale} & [\![0,n]\!] & \binom{n}{k}p^k(1-p)^{n-k} & np & np(1-p) & (1-p+pt)^n & (1-p+pe^{it})^n \\
+\hline
+\text{Géométrique} & \mathbb{N}^* & (1-p)^{k-1}p & \frac{1}{p} & \frac{1-p}{p^2} & \frac{pt}{1-(1-p)t} & \frac{pe^{it}}{1-(1-p)e^{it}} \\
+\hline
+\text{Poisson} & \mathbb{N} & e^{-\lambda}\frac{\lambda^k}{k!} & \lambda & \lambda & e^{\lambda(t-1)} & e^{\lambda(e^{it}-1)} \\
+\hline
+\text{Hypergéométrique} & [\![0,n]\!] & \frac{\binom{Np}{k}\binom{N(1-p)}{n-k}}{\binom{N}{n}} & np & np(1-p)\frac{N-n}{N-1} & \text{---} & \text{---} \\
+\hline
+\text{Pascal (Binomiale négative)} & [\![r,+\infty[\!] & \binom{k-1}{r-1}p^r(1-p)^{k-r} & \frac{r}{p} & \frac{r(1-p)}{p^2} & \left(\frac{p}{1-(1-p)t}\right)^r & \left(\frac{pe^{it}}{1-(1-p)e^{it}}\right)^r \\
+\hline
+\end{array}
+\]
+
+Lois continues
+\[
+\begin{array}{|l|c|c|c|c|c|}
+\hline
+\text{Nom} & X(\Omega) & f(x) & E(X) & V(X) & \phi(t) \\
+\hline
+\text{Uniforme} & [a,b] & \frac{1}{b-a} & \frac{a+b}{2} & \frac{(b-a)^2}{12} & \frac{e^{ibt}-e^{iat}}{it(b-a)} \\
+\hline
+\text{Normale} & \mathbb{R} & \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-m)^2}{2\sigma^2}} & m & \sigma^2 & e^{imt-\frac{\sigma^2 t^2}{2}} \\
+\hline
+\text{Exponentielle} & \mathbb{R}^+ & \alpha e^{-\alpha x} & \frac{1}{\alpha} & \frac{1}{\alpha^2} & \frac{\alpha}{\alpha - it} \\
+\hline
+\text{Cauchy} & \mathbb{R} & \frac{1}{\pi}\frac{\alpha}{\alpha^2 + (x-m)^2} & \text{Indéf.} & \text{Indéf.} & e^{imt-\alpha|t|} \\
+\hline
+\chi^2 & \mathbb{R}^+ & \frac{1}{2^{n/2}\Gamma(n/2)}x^{n/2-1}e^{-x/2} & n & 2n & (1-2it)^{-n/2} \\
+\hline
+\text{Beta} & [0,1] & \frac{x^{a-1}(1-x)^{b-1}}{B(a,b)} & \frac{a}{a+b} & \frac{ab}{(a+b)^2(a+b+1)} & \text{---} \\
+\hline
+\text{Gamma} & \mathbb{R}^+ & \frac{\beta^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\beta x} & \frac{\alpha}{\beta} & \frac{\alpha}{\beta^2} & (1 - \frac{it}{\beta})^{-\alpha} \\
+\hline
+\end{array}
+\]
+
+Approximations
+\[
+\begin{array}{|l|l|l|l|}
+\hline
+\text{Loi} & \text{Paramètres} & \text{Loi approchée} & \text{Conditions} \\
+\hline
+\mathcal{H}(N,n,p) & N \geq 10n & \mathcal{B}(n,p) & \text{Grande population} \\
+\hline
+\mathcal{B}(n,p) & p \leq 0.1, n \geq 30 & \mathcal{P}(np) & \text{Événements rares} \\
+\hline
+\mathcal{P}(\lambda) & \lambda \geq 15 & \mathcal{N}(\lambda, \lambda) & \text{Grand } \lambda \\
+\hline
+\mathcal{B}(n,p) & np \geq 15, n(1-p) \geq 15 & \mathcal{N}(np, np(1-p)) & \text{Théorème central limite} \\
+\hline
+\end{array}
+\]
+
+Notes importantes
+
+ Loi de Pascal : Modélise le nombre d'essais nécessaires pour obtenir $r$ succès
+ Correction de variance pour les approximations : Utiliser la correction de continuité
+ $\Gamma(\alpha)$ : Fonction gamma d'Euler, extension de la factorielle
+
+</p>
         </div>
         
         <div id="trigo" class="content">
