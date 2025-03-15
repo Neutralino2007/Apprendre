@@ -11,11 +11,11 @@
 <body>
     <div class="container">
         <button class="home-button" onclick="window.location.href='index.html'">Revenir à l'accueil</button>
-        <div class="menu">
-            <a href="#" data-target="algebre">Algèbre</a>
-            <a href="#" data-target="analyse">Analyse</a>
-            <a href="#" data-target="probas">Probas</a>
-            <a href="#" data-target="trigo">Trigo</a>
+        <div class="categories">
+            <button class="category-button" onclick="scrollToCategory('algebre')">Algèbre</button>
+            <button class="category-button" onclick="scrollToCategory('analyse')">Analyse</button>
+            <button class="category-button" onclick="scrollToCategory('probas')">Probas</button>
+            <button class="category-button" onclick="scrollToCategory('trigo')">Trigo</button>
         </div>
         <div id="algebre" class="content">
             <h2>Algèbre</h2>
