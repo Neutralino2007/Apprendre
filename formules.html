@@ -229,6 +229,12 @@ f(t) = \sum_{n=-\infty}^{\infty} c_n e^{in\omega t}, \quad c_n = \frac{1}{T} \in
     </div>
 
     <script>
+        function scrollToCategory(category) {
+    const element = document.getElementById(category);
+    if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+    }
+}
         document.querySelectorAll('.menu a').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
