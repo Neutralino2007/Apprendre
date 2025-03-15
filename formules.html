@@ -21,23 +21,151 @@
         </div>
         <div id="algebre" class="content">
             <h2>Algèbre</h2>
-            <p>Here you can add your algebra formulas in LaTeX:</p>
-            <p>$$a^2 + b^2 = c^2$$</p>
+<p>
+\section{Algèbre}
+
+\begin{theorem}[Théorème du rang]
+Soit \( f: E \to F \) linéaire avec \( \dim(E) \) finie. Alors:
+\[
+\dim(E) = \dim(\ker(f)) + \dim(\mathrm{Im}(f))
+\]
+\end{theorem}
+
+\begin{theorem}[Cayley-Hamilton]
+Toute matrice carrée annule son polynôme caractéristique:
+\[
+\chi_A(A) = 0
+\]
+\end{theorem}
+
+\begin{theorem}[Théorème spectral]
+Toute matrice symétrique réelle est diagonalisable par une matrice orthogonale.
+\end{theorem}
+
+\begin{theorem}[Décomposition de Jordan]
+Toute matrice complexe admet une forme de Jordan triangulaire supérieure.
+\end{theorem}
+
+\subsection{Polynômes}
+\[
+P(z) = \sum_{k=0}^n a_kz^k \Rightarrow \sum_{k=0}^n a_k = 0 \Leftrightarrow 1 \text{ racine}
+\]
+\[
+\prod_{k=1}^n (X - z_k) = X^n - S_1X^{n-1} + \cdots + (-1)^n S_n
+\]
+
+\subsection{Espaces euclidiens}
+\[
+\|\vec{x} + \vec{y}\|^2 = \|\vec{x}\|^2 + 2\langle\vec{x},\vec{y}\rangle + \|\vec{y}\|^2
+\]
+\[
+\mathrm{proj}_V(\vec{x}) = \sum_{i=1}^k \frac{\langle \vec{x}, \vec{e_i} \rangle}{\|\vec{e_i}\|^2}\vec{e_i}
+\]
+</p>
         </div>
         <div id="analyse" class="content">
             <h2>Analyse</h2>
-            <p>Here you can add your analysis formulas in LaTeX:</p>
-            <p>$$\int_{a}^{b} f(x) \, dx$$</p>
+<p>
+\section{Analyse}
+
+\begin{theorem}[Bolzano-Weierstrass]
+Toute suite bornée dans \( \mathbb{R}^n \) admet une sous-suite convergente.
+\end{theorem}
+
+\begin{theorem}[Formule de Taylor]
+Pour \( f \in C^{n+1}([a,b]) \):
+\[
+f(b) = \sum_{k=0}^n \frac{f^{(k)}(a)}{k!}(b-a)^k + R_n
+\]
+\end{theorem}
+
+\subsection{Intégration}
+\[
+\int_a^b f' = f(b) - f(a) \quad \text{(Théorème fondamental)}
+\]
+\[
+\int_{-\infty}^{+\infty} e^{-x^2}dx = \sqrt{\pi}
+\]
+
+\subsection{Séries}
+\[
+\sum_{n=0}^\infty z^n = \frac{1}{1-z} \quad (|z| < 1)
+\]
+\[
+\ln(1+x) = \sum_{n=1}^\infty (-1)^{n+1}\frac{x^n}{n} \quad (-1 < x \leq 1)
+\]
+                                                                   
+\subsection{EDP}
+Équation de la chaleur:
+\[
+\frac{\partial u}{\partial t} = \alpha\nabla^2 u
+\]
+</p>
         </div>
         <div id="probas" class="content">
             <h2>Probas</h2>
-            <p>Here you can add your probability formulas in LaTeX:</p>
-            <p>$$P(A \cap B) = P(A)P(B)$$</p>
+<p>
+\section{Probabilités}
+
+\begin{theorem}[Bayes]
+\[
+P(A|B) = \frac{P(B|A)P(A)}{P(B)}
+\]
+\end{theorem}
+
+\subsection{Variables discrètes}
+\[
+\mathbb{E}[X] = \sum x_kP(X=x_k)
+\]
+\[
+\mathrm{Var}(X) = \mathbb{E}[X^2] - (\mathbb{E}[X])^2
+\]
+
+\subsection{Lois continues}
+Loi normale:
+\[
+f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
+\]
+
+\begin{theorem}[CLT]
+\[
+\frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}} \xrightarrow{d} \mathcal{N}(0,1)
+\]
+\end{theorem}
+</p>
         </div>
         <div id="trigo" class="content">
             <h2>Trigo</h2>
-            <p>Here you can add your trigonometry formulas in LaTeX:</p>
-            <p>$$\sin^2(\theta) + \cos^2(\theta) = 1$$</p>
+<p>
+\section{Trigo}
+
+\subsection{Identités}
+\[
+\cos(a+b) = \cos a \cos b - \sin a \sin b
+\]
+\[
+\sin(2\theta) = 2\sin\theta\cos\theta
+\]
+\[
+\tan'(x) = 1 + \tan^2(x)
+\]
+
+\subsection{Formes complexes}
+\[
+e^{i\theta} = \cos\theta + i\sin\theta
+\]
+\[
+\sum_{k=0}^n \cos(k\theta) = \frac{\sin(\frac{n\theta}{2})\cos(\frac{(n+1)\theta}{2})}{\sin(\frac{\theta}{2})}
+\]
+
+\subsection{Séries de Fourier}
+\[
+f(t) = \frac{a_0}{2} + \sum_{n=1}^\infty [a_n\cos(n\omega t) + b_n\sin(n\omega t)]
+\]
+\[
+a_n = \frac{2}{T}\int_0^T f(t)\cos(n\omega t)dt
+\]
+</p>
         </div>
     </div>
 
