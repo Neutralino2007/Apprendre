@@ -3,13 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test de Vocabulaire</title>
+    <title>Formules</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
     <button class="home-button" onclick="window.location.href='index.html'">Revenir à l'accueil</button>
-    <div class="central-container">
+    <div class="menu">
+        <a href="#" data-target="algebre">Algèbre</a>
+        <a href="#" data-target="analyse">Analyse</a>
+        <a href="#" data-target="probas">Probas</a>
+        <a href="#" data-target="trigo">Trigo</a>
     </div>
-    <script src="script.js"></script>
+    <div id="algebre" class="content">
+        <h2>Algèbre</h2>
+        <p>Here you can add your algebra formulas in LaTeX:</p>
+        <p>$$a^2 + b^2 = c^2$$</p>
+    </div>
+    <div id="analyse" class="content">
+        <h2>Analyse</h2>
+        <p>Here you can add your analysis formulas in LaTeX:</p>
+        <p>$$\int_{a}^{b} f(x) \, dx$$</p>
+    </div>
+    <div id="probas" class="content">
+        <h2>Probas</h2>
+        <p>Here you can add your probability formulas in LaTeX:</p>
+        <p>$$P(A \cap B) = P(A)P(B)$$</p>
+    </div>
+    <div id="trigo" class="content">
+        <h2>Trigo</h2>
+        <p>Here you can add your trigonometry formulas in LaTeX:</p>
+        <p>$$\sin^2(\theta) + \cos^2(\theta) = 1$$</p>
+    </div>
+
+    <script>
+        document.querySelectorAll('.menu a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('.content').forEach(section => {
+                    section.classList.remove('active');
+                });
+                document.getElementById(this.getAttribute('data-target')).classList.add('active');
+            });
+        });
+    </script>
 </body>
 </html>
