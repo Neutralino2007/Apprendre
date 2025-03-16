@@ -367,11 +367,12 @@ f(t) = \sum_{n=-\infty}^{\infty} c_n e^{in\omega t}, \quad c_n = \frac{1}{T} \in
 
     <script>
         function scrollToCategory(category) {
-    const element = document.getElementById(category);
-    if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-    }
-}
+            const element = document.getElementById(category);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
         document.querySelectorAll('.menu a').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -379,6 +380,18 @@ f(t) = \sum_{n=-\infty}^{\infty} c_n e^{in\omega t}, \quad c_n = \frac{1}{T} \in
                     section.classList.remove('active');
                 });
                 document.getElementById(this.getAttribute('data-target')).classList.add('active');
+            });
+        });
+
+        document.querySelectorAll('.categories select').forEach(select => {
+            select.addEventListener('change', function() {
+                const selectedOption = this.options[this.selectedIndex].value;
+                if (selectedOption) {
+                    const targetElement = document.getElementById(selectedOption);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
             });
         });
     </script>
