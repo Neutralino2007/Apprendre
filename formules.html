@@ -24,12 +24,12 @@
         <div style="height:10px;"></div>
         <!-- Boutons de navigation vers les catégories -->
         <div class="categories">
-            <button class="category-button" onclick="scrollToCategory('algebre')">Algèbre</button>
+            <button class="category-button" onclick="handleCategoryScroll('algebre')">Algèbre</button>
             <select id="algebre-select">
                 <option value="1">Section 1</option>
             </select>
             
-            <button class="category-button" onclick="scrollToCategory('analyse')">Analyse</button>
+            <button class="category-button" onclick="handleCategoryScroll('analyse')">Analyse</button>
             <select id="analyse-select">
                 <option value="1">Développements limités classiques</option>
                 <option value="2">Formules de Taylor</option>
@@ -38,12 +38,12 @@
                 <option value="5">Inégalités utiles</option>
             </select>
             
-            <button class="category-button" onclick="scrollToCategory('probas')">Probas</button>
+            <button class="category-button" onclick="handleCategoryScroll('probas')">Probas</button>
             <select id="probas-select">
                 <option value="1">Section 1</option>
             </select>
             
-            <button class="category-button" onclick="scrollToCategory('trigo')">Trigo</button>
+            <button class="category-button" onclick="handleCategoryScroll('trigo')">Trigo</button>
             <select id="trigo-select">
                 <option value="1">Section 1</option>
             </select>
@@ -367,17 +367,22 @@ f(t) = \sum_{n=-\infty}^{\infty} c_n e^{in\omega t}, \quad c_n = \frac{1}{T} \in
 
     <script>
         function scrollToCategory(category, index) {
-            const categoryElement = document.getElementById(category);
-            if (categoryElement) {
-                const headings = categoryElement.getElementsByTagName('h3');
-                if (headings.length > index) {
-                    headings[index].scrollIntoView({ behavior: 'smooth' });
-                } else {
-                    // If the specified index is out of bounds, scroll to the first heading
-                    categoryElement.scrollIntoView({ behavior: 'smooth' });
-                }
-            }
+    const categoryElement = document.getElementById(category);
+    if (categoryElement) {
+        const headings = categoryElement.getElementsByTagName('h3');
+        if (headings.length > index && index >= 0) {
+            headings[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+            categoryElement.scrollIntoView({ behavior: 'smooth' });
         }
+    }
+}
+
+        function handleCategoryScroll(category) {
+    const select = document.getElementById(`${category}-select`);
+    const index = parseInt(select.value) - 1; // Convertir en index 0-based
+    scrollToCategory(category, index);
+}
         
         document.querySelectorAll('.menu a').forEach(link => {
             link.addEventListener('click', function(e) {
