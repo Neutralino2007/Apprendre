@@ -34,8 +34,96 @@
         </div>
         
         <div id="analyse" class="content">
-            <h2>Analyse</h2>
-        </div>
+    <h2>Analyse</h2>
+    
+    <h3>Développements limités classiques</h3>
+    <p>
+        \[
+        \begin{array}{|l|l|}
+        \hline
+        \text{Fonction} &amp; \text{Développement limité en 0} \\
+        \hline
+        e^x &amp; 1 + x + \dfrac{x^2}{2} + \cdots + \dfrac{x^n}{n!} + o(x^n) \\
+        \sin x &amp; x - \dfrac{x^3}{6} + \dfrac{x^5}{120} + \cdots + (-1)^p\dfrac{x^{2p+1}}{(2p+1)!} + o(x^{2p+2}) \\
+        \cos x &amp; 1 - \dfrac{x^2}{2} + \dfrac{x^4}{24} + \cdots + (-1)^p\dfrac{x^{2p}}{(2p)!} + o(x^{2p+1}) \\
+        \ln(1+x) &amp; x - \dfrac{x^2}{2} + \dfrac{x^3}{3} + \cdots + (-1)^{n+1}\dfrac{x^n}{n} + o(x^n) \\
+        (1+x)^\alpha &amp; 1 + \alpha x + \dfrac{\alpha(\alpha-1)}{2}x^2 + \cdots + \dbinom{\alpha}{n}x^n + o(x^n) \\
+        \tan x &amp; x + \dfrac{x^3}{3} + \dfrac{2x^5}{15} + o(x^6) \\
+        \hline
+        \end{array}
+        \]
+    </p>
+
+    <h3>Formules de Taylor</h3>
+    <p>
+        <strong>Taylor-Young :</strong>
+        \[
+        f(x) = \sum_{k=0}^n \dfrac{f^{(k)}(a)}{k!}(x-a)^k + o((x-a)^n)
+        \]
+        
+        <strong>Taylor avec reste intégral :</strong>
+        \[
+        f(x) = \sum_{k=0}^n \dfrac{f^{(k)}(a)}{k!}(x-a)^k + \int_a^x \dfrac{(x-t)^n}{n!} f^{(n+1)}(t) dt
+        \]
+    </p>
+
+    <h3>Inégalité des accroissements finis</h3>
+    <p>
+        Si \( f \) est \( \mathcal{C}^1 \) sur \([a,b]\) et \( \|f'\|_\infty \leq M \) :
+        \[
+        |f(b) - f(a)| \leq M |b - a|
+        \]
+    </p>
+
+    <h3>Séries entières</h3>
+    <p>
+        <strong>Rayon de convergence :</strong>
+        \[
+        R = \dfrac{1}{\limsup_{n \to \infty} \sqrt[n]{|a_n|}}
+        \]
+        
+        <strong>Propriétés :</strong>
+        <ul>
+            <li>Convergence normale sur tout compact de \( ]-R,R[ \)</li>
+            <li>Dérivation terme à terme possible</li>
+            <li>Produit par convolution (Cauchy)</li>
+        </ul>
+
+        <strong>Séries classiques :</strong>
+        \[
+        \begin{array}{|l|l|}
+        \hline
+        \text{Exponentielle} &amp; \sum_{n=0}^{\infty} \dfrac{z^n}{n!} \\
+        \text{Géométrique} &amp; \sum_{n=0}^{\infty} z^n = \dfrac{1}{1-z} \\
+        \text{Binomiale} &amp; \sum_{n=0}^{\infty} \dbinom{\alpha}{n} z^n = (1+z)^\alpha \\
+        \hline
+        \end{array}
+        \]
+    </p>
+
+    <h3>Inégalités utiles</h3>
+    <p>
+        <strong>Cauchy-Schwarz :</strong>
+        \[
+        \left|\sum_{k=1}^n u_k v_k\right| \leq \left(\sum_{k=1}^n u_k^2\right)^{1/2} \left(\sum_{k=1}^n v_k^2\right)^{1/2}
+        \]
+        
+        <strong>Hölder :</strong>
+        \[
+        \sum_{k=1}^n |a_k b_k| \leq \left(\sum_{k=1}^n |a_k|^p\right)^{1/p} \left(\sum_{k=1}^n |b_k|^q\right)^{1/q} \quad (1/p + 1/q = 1)
+        \]
+        
+        <strong>Minkowski :</strong>
+        \[
+        \left(\sum_{k=1}^n |a_k + b_k|^p\right)^{1/p} \leq \left(\sum_{k=1}^n |a_k|^p\right)^{1/p} + \left(\sum_{k=1}^n |b_k|^p\right)^{1/p}
+        \]
+        
+        <strong>Inégalité triangulaire :</strong>
+        \[
+        |\|x\| - \|y\|| \leq \|x - y\|
+        \]
+    </p>
+</div>
         
         <div id="probas" class="content">
             <h2>Probas</h2>
