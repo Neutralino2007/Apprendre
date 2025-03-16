@@ -39,19 +39,22 @@
         <div id="analyse" class="content">
             <h2>Analyse</h2>
             
-            <h3>Développements limités classiques</h3>
+             <h3>Développements limités classiques</h3>
             <p>
                 \[
                 \begin{array}{|l|l|}
                 \hline
                 \text{Fonction} &amp; \text{Développement limité en 0} \\
                 \hline
-                e^x &amp; 1 + x + \dfrac{x^2}{2} + \cdots + \dfrac{x^n}{n!} + o(x^n) \\
-                \sin x &amp; x - \dfrac{x^3}{6} + \dfrac{x^5}{120} + \cdots + (-1)^p\dfrac{x^{2p+1}}{(2p+1)!} + o(x^{2p+2}) \\
-                \cos x &amp; 1 - \dfrac{x^2}{2} + \dfrac{x^4}{24} + \cdots + (-1)^p\dfrac{x^{2p}}{(2p)!} + o(x^{2p+1}) \\
-                \ln(1+x) &amp; x - \dfrac{x^2}{2} + \dfrac{x^3}{3} + \cdots + (-1)^{n+1}\dfrac{x^n}{n} + o(x^n) \\
-                (1+x)^\alpha &amp; 1 + \alpha x + \dfrac{\alpha(\alpha-1)}{2}x^2 + \cdots + \dbinom{\alpha}{n}x^n + o(x^n) \\
-                \tan x &amp; x + \dfrac{x^3}{3} + \dfrac{2x^5}{15} + o(x^6) \\
+                e^x &amp; \sum_{k=0}^n \frac{x^k}{k!} + o(x^n) \\
+                \sin x &amp; \sum_{k=0}^p (-1)^k\frac{x^{2k+1}}{(2k+1)!} + o(x^{2p+2}) \\
+                \cos x &amp; \sum_{k=0}^p (-1)^k\frac{x^{2k}}{(2k)!} + o(x^{2p+1}) \\
+                \sinh x &amp; \sum_{k=0}^p \frac{x^{2k+1}}{(2k+1)!} + o(x^{2p+2}) \\
+                \cosh x &amp; \sum_{k=0}^p \frac{x^{2k}}{(2k)!} + o(x^{2p+1}) \\
+                \tanh x &amp; x - \frac{x^3}{3} + \frac{2x^5}{15} - \frac{17x^7}{315} + o(x^8) \\
+                \ln(1+x) &amp; \sum_{k=1}^n (-1)^{k+1}\frac{x^k}{k} + o(x^n) \\
+                (1+x)^\alpha &amp; \sum_{k=0}^n \binom{\alpha}{k}x^k + o(x^n) \\
+                \tan x &amp; x + \frac{x^3}{3} + \frac{2x^5}{15} + o(x^6) \\
                 \hline
                 \end{array}
                 \]
@@ -94,11 +97,14 @@
         
                 <strong>Séries classiques :</strong>
                 \[
-                \begin{array}{|l|l|}
+                 \begin{array}{|l|l|}
                 \hline
                 \text{Exponentielle} &amp; \sum_{n=0}^{\infty} \dfrac{z^n}{n!} \\
-                \text{Géométrique} &amp; \sum_{n=0}^{\infty} z^n = \dfrac{1}{1-z} \\
-                \text{Binomiale} &amp; \sum_{n=0}^{\infty} \dbinom{\alpha}{n} z^n = (1+z)^\alpha \\
+                \text{Sinus} &amp; \sum_{n=0}^{\infty} (-1)^n\dfrac{z^{2n+1}}{(2n+1)!} \\
+                \text{Cosinus} &amp; \sum_{n=0}^{\infty} (-1)^n\dfrac{z^{2n}}{(2n)!} \\
+                \text{Sinus hyperbolique} &amp; \sum_{n=0}^{\infty} \dfrac{z^{2n+1}}{(2n+1)!} \\
+                \text{Cosinus hyperbolique} &amp; \sum_{n=0}^{\infty} \dfrac{z^{2n}}{(2n)!} \\
+                \text{Tangente hyperbolique} &amp; \sum_{n=1}^{\infty} \frac{B_{2n}4^n(4^n - 1)}{(2n)!}z^{2n-1} \quad (|z| < \pi/2) \\
                 \hline
                 \end{array}
                 \]
@@ -305,6 +311,38 @@ Forme complexe :
 f(t) = \sum_{n=-\infty}^{\infty} c_n e^{in\omega t}, \quad c_n = \frac{1}{T} \int_{0}^{T} f(t)e^{-in\omega t} dt
 \]
 </p>
+<h3>Trigo hyperbolique</h3>
+                \[
+                \cosh x = \frac{e^x + e^{-x}}{2}, \quad \sinh x = \frac{e^x - e^{-x}}{2}, \quad \tanh x = \frac{\sinh x}{\cosh x}
+                \]
+                
+                <strong>Dérivées :</strong>
+                \[
+                (\cosh x)' = \sinh x, \quad (\sinh x)' = \cosh x, \quad (\tanh x)' = 1 - \tanh^2 x
+                \]
+                
+                <strong>Identités fondamentales :</strong>
+                \[
+                \cosh^2 x - \sinh^2 x = 1, \quad 1 - \tanh^2 x = \frac{1}{\cosh^2 x}
+                \]
+                
+                <strong>Formules d'addition :</strong>
+                \[
+                \begin{array}{ll}
+                \cosh(a+b) = \cosh a \cosh b + \sinh a \sinh b \\
+                \sinh(a+b) = \sinh a \cosh b + \cosh a \sinh b \\
+                \end{array}
+                \]
+                
+                <strong>Fonctions inverses :</strong>
+                \[
+                \begin{array}{ll}
+                \text{argcosh } x = \ln(x + \sqrt{x^2 - 1}) \\
+                \text{argsinh } x = \ln(x + \sqrt{x^2 + 1}) \\
+                \text{argtanh } x = \frac{1}{2}\ln\left(\frac{1+x}{1-x}\right) \\
+                \end{array}
+                \]
+            </p>
 </div>
     </div>
 
