@@ -40,12 +40,15 @@
             
             <button class="category-button" onclick="handleCategoryScroll('probas')">Probas</button>
             <select id="probas-select">
-                <option value="1">Section 1</option>
+                <option value="1">Lois discrètes</option>
+                <option value="2">Approximations</option>
+                <option value="3">Notes importantes</option>
             </select>
             
             <button class="category-button" onclick="handleCategoryScroll('trigo')">Trigo</button>
             <select id="trigo-select">
-                <option value="1">Section 1</option>
+                <option value="1">Trigo classique</option>
+                <option value="2">Trigo hyperbolique</option>
             </select>
         </div>
         
@@ -157,211 +160,251 @@
         
         <div id="probas" class="content">
             <h2>Probas</h2>
-<p>
-<h3>Lois discrètes</h3>
-\[
-\begin{array}{|l|c|c|c|c|c|c|}
-\hline
-\text{Nom} & X(\Omega) & P(X = k) & E(X) & V(X) & G(t) & \phi(t) \\
-\hline
-\text{Uniforme} & [\![1,n]\!] & \frac{1}{n} & \frac{n+1}{2} & \frac{n^2-1}{12} & \frac{t(1-t^n)}{n(1-t)} & \frac{e^{t}(1-e^{nt})}{n(1-e^t)} \\
-\hline
-\text{Bernoulli} & \{0,1\} & p^k(1-p)^{1-k} & p & p(1-p) & 1-p+pt & 1-p+pe^{it} \\
-\hline
-\text{Binomiale} & [\![0,n]\!] & \binom{n}{k}p^k(1-p)^{n-k} & np & np(1-p) & (1-p+pt)^n & (1-p+pe^{it})^n \\
-\hline
-\text{Géométrique} & \mathbb{N}^* & (1-p)^{k-1}p & \frac{1}{p} & \frac{1-p}{p^2} & \frac{pt}{1-(1-p)t} & \frac{pe^{it}}{1-(1-p)e^{it}} \\
-\hline
-\text{Poisson} & \mathbb{N} & e^{-\lambda}\frac{\lambda^k}{k!} & \lambda & \lambda & e^{\lambda(t-1)} & e^{\lambda(e^{it}-1)} \\
-\hline
-\text{Hypergéométrique} & [\![0,n]\!] & \frac{\binom{Np}{k}\binom{N(1-p)}{n-k}}{\binom{N}{n}} & np & np(1-p)\frac{N-n}{N-1} & \text{---} & \text{---} \\
-\hline
-\text{Pascal (Binomiale négative)} & [\![r,+\infty[\!] & \binom{k-1}{r-1}p^r(1-p)^{k-r} & \frac{r}{p} & \frac{r(1-p)}{p^2} & \left(\frac{p}{1-(1-p)t}\right)^r & \left(\frac{pe^{it}}{1-(1-p)e^{it}}\right)^r \\
-\hline
-\end{array}
-\]
+            <h3>Lois discrètes</h3>
+                <p>
+                    \[
+                    \begin{array}{|l|c|c|c|c|c|c|}
+                    \hline
+                    \text{Nom} & X(\Omega) & P(X = k) & E(X) & V(X) & G(t) & \phi(t) \\
+                    \hline
+                    \text{Uniforme} & [\![1,n]\!] & \frac{1}{n} & \frac{n+1}{2} & \frac{n^2-1}{12} & \frac{t(1-t^n)}{n(1-t)} & \frac{e^{t}(1-e^{nt})}{n(1-e^t)} \\
+                    \hline
+                    \text{Bernoulli} & \{0,1\} & p^k(1-p)^{1-k} & p & p(1-p) & 1-p+pt & 1-p+pe^{it} \\
+                    \hline
+                    \text{Binomiale} & [\![0,n]\!] & \binom{n}{k}p^k(1-p)^{n-k} & np & np(1-p) & (1-p+pt)^n & (1-p+pe^{it})^n \\
+                    \hline
+                    \text{Géométrique} & \mathbb{N}^* & (1-p)^{k-1}p & \frac{1}{p} & \frac{1-p}{p^2} & \frac{pt}{1-(1-p)t} & \frac{pe^{it}}{1-(1-p)e^{it}} \\
+                    \hline
+                    \text{Poisson} & \mathbb{N} & e^{-\lambda}\frac{\lambda^k}{k!} & \lambda & \lambda & e^{\lambda(t-1)} & e^{\lambda(e^{it}-1)} \\
+                    \hline
+                    \text{Hypergéométrique} & [\![0,n]\!] & \frac{\binom{Np}{k}\binom{N(1-p)}{n-k}}{\binom{N}{n}} & np & np(1-p)\frac{N-n}{N-1} & \text{---} & \text{---} \\
+                    \hline
+                    \text{Pascal (Binomiale négative)} & [\![r,+\infty[\!] & \binom{k-1}{r-1}p^r(1-p)^{k-r} & \frac{r}{p} & \frac{r(1-p)}{p^2} & \left(\frac{p}{1-(1-p)t}\right)^r & \left(\frac{pe^{it}}{1-(1-p)e^{it}}\right)^r \\
+                    \hline
+                    \end{array}
+                    \]
+                </p>
 
-<h3>Approximations</h3>
-\[
-\begin{array}{|l|l|l|l|}
-\hline
-\text{Loi} & \text{Paramètres} & \text{Loi approchée} & \text{Conditions} \\
-\hline
-\mathcal{H}(N,n,p) & N \geq 10n & \mathcal{B}(n,p) & \text{Grande population} \\
-\hline
-\mathcal{B}(n,p) & p \leq 0.1, n \geq 30 & \mathcal{P}(np) & \text{Événements rares} \\
-\hline
-\mathcal{P}(\lambda) & \lambda \geq 15 & \mathcal{N}(\lambda, \lambda) & \text{Grand } \lambda \\
-\hline
-\mathcal{B}(n,p) & np \geq 15, n(1-p) \geq 15 & \mathcal{N}(np, np(1-p)) & \text{Théorème central limite} \\
-\hline
-\end{array}
-\]
+            <h3>Approximations</h3>
+                <p>
+                    \[
+                    \begin{array}{|l|l|l|l|}
+                    \hline
+                    \text{Loi} & \text{Paramètres} & \text{Loi approchée} & \text{Conditions} \\
+                    \hline
+                    \mathcal{H}(N,n,p) & N \geq 10n & \mathcal{B}(n,p) & \text{Grande population} \\
+                    \hline
+                    \mathcal{B}(n,p) & p \leq 0.1, n \geq 30 & \mathcal{P}(np) & \text{Événements rares} \\
+                    \hline
+                    \mathcal{P}(\lambda) & \lambda \geq 15 & \mathcal{N}(\lambda, \lambda) & \text{Grand } \lambda \\
+                    \hline
+                    \mathcal{B}(n,p) & np \geq 15, n(1-p) \geq 15 & \mathcal{N}(np, np(1-p)) & \text{Théorème central limite} \\
+                    \hline
+                    \end{array}
+                    \]
+                </p>
 
-<h3>Notes importantes</h3>
-
- Loi de Pascal : Modélise le nombre d'essais nécessaires pour obtenir \( r \) succès.
-Correction de variance pour les approximations : Utiliser la correction de continuité.
-\( \Gamma(\alpha) \) : Fonction gamma d'Euler, extension de la factorielle.
-
-</p>
+            <h3>Notes importantes</h3>
+                <p>
+                     Loi de Pascal : Modélise le nombre d'essais nécessaires pour obtenir \( r \) succès.
+                    Correction de variance pour les approximations : Utiliser la correction de continuité.
+                    \( \Gamma(\alpha) \) : Fonction gamma d'Euler, extension de la factorielle.
+                </p>
         </div>
 
          <br><br><br><br>
         
         <div id="trigo" class="content">
-    <h2>Trigo</h2>
-<p>
-<h3>Trigo classique</h3>
-<strong>Identités fondamentales</strong>
-\[
-\forall x \in \mathbb{R},\quad \cos^2 x + \sin^2 x = 1
-\]
-<br>
-\(\cos\) est paire, \(2\pi\)-périodique, et \(\cos' = -\sin\)
-<br>
-\(\sin\) est impaire, \(2\pi\)-périodique, et \(\sin' = \cos\)
-<br>
-\(\tan\) est impaire, \(\pi\)-périodique, et \(\tan' = 1 + \tan^2 x\)
-<br><br>
-<strong>Dérivées d'ordre supérieur</strong>
-\[
-\begin{array}{ll}
-\cos^{(2k)}(x) = (-1)^k \cos(x) & \cos^{(2k+1)}(x) = (-1)^{k-1} \sin(x) \\
-\sin^{(2k)}(x) = (-1)^k \sin(x) & \sin^{(2k+1)}(x) = (-1)^k \cos(x) \\
-\end{array}
-\]
+            <h2>Trigo</h2>
+            
+            <h3>Trigo classique</h3>
+            <p>
+                <strong>Identités fondamentales</strong>
+                <p>
+                    \[
+                    \forall x \in \mathbb{R},\quad \cos^2 x + \sin^2 x = 1
+                    \]
+                    <br>
+                    \(\cos\) est paire, \(2\pi\)-périodique, et \(\cos' = -\sin\)
+                    <br>
+                    \(\sin\) est impaire, \(2\pi\)-périodique, et \(\sin' = \cos\)
+                    <br>
+                    \(\tan\) est impaire, \(\pi\)-périodique, et \(\tan' = 1 + \tan^2 x\)
+                </p>
+                <br><br>
+            
+                <strong>Dérivées d'ordre supérieur</strong>
+                <p>
+                    \[
+                    \begin{array}{ll}
+                    \cos^{(2k)}(x) = (-1)^k \cos(x) & \cos^{(2k+1)}(x) = (-1)^{k-1} \sin(x) \\
+                    \sin^{(2k)}(x) = (-1)^k \sin(x) & \sin^{(2k+1)}(x) = (-1)^k \cos(x) \\
+                    \end{array}
+                    \]
+                </p>
 
-<strong>Formules d'addition</strong>
-\[
-\begin{array}{lll}
-\cos(a + b) = \cos a \cos b - \sin a \sin b & \cos(a - b) = \cos a \cos b + \sin a \sin b \\
-\sin(a + b) = \sin a \cos b + \cos a \sin b & \sin(a - b) = \sin a \cos b - \cos a \sin b \\
-\tan(a + b) = \dfrac{\tan a + \tan b}{1 - \tan a \tan b} & \tan(a - b) = \dfrac{\tan a - \tan b}{1 + \tan a \tan b} \\
-\end{array}
-\]
+                <strong>Formules d'addition</strong>
+                <p>
+                    \[
+                    \begin{array}{lll}
+                    \cos(a + b) = \cos a \cos b - \sin a \sin b & \cos(a - b) = \cos a \cos b + \sin a \sin b \\
+                    \sin(a + b) = \sin a \cos b + \cos a \sin b & \sin(a - b) = \sin a \cos b - \cos a \sin b \\
+                    \tan(a + b) = \dfrac{\tan a + \tan b}{1 - \tan a \tan b} & \tan(a - b) = \dfrac{\tan a - \tan b}{1 + \tan a \tan b} \\
+                    \end{array}
+                    \]
+                </p>
 
-<strong>Formules de duplication</strong>
-\[
-\begin{array}{ll}
-\cos 2a = 2\cos^2 a - 1 = 1 - 2\sin^2 a & \sin 2a = 2\sin a \cos a \\
-\tan 2a = \dfrac{2\tan a}{1 - \tan^2 a} & \\
-\cos^2 a = \dfrac{1 + \cos 2a}{2} & \sin^2 a = \dfrac{1 - \cos 2a}{2} \\
-\end{array}
-\]
+                <strong>Formules de duplication</strong>
+                <p>
+                    \[
+                    \begin{array}{ll}
+                    \cos 2a = 2\cos^2 a - 1 = 1 - 2\sin^2 a & \sin 2a = 2\sin a \cos a \\
+                    \tan 2a = \dfrac{2\tan a}{1 - \tan^2 a} & \\
+                    \cos^2 a = \dfrac{1 + \cos 2a}{2} & \sin^2 a = \dfrac{1 - \cos 2a}{2} \\
+                    \end{array}
+                    \]
+                </p>
 
-<strong>Linéarisation</strong>
-\[
-\begin{array}{ll}
-\cos a \cos b = \dfrac{1}{2}[\cos(a + b) + \cos(a - b)] \\
-\sin a \sin b = -\dfrac{1}{2}[\cos(a + b) - \cos(a - b)] \\
-\sin a \cos b = \dfrac{1}{2}[\sin(a + b) + \sin(a - b)] \\
-\end{array}
-\]
+                <strong>Linéarisation</strong>
+                <p>
+                    \[
+                    \begin{array}{ll}
+                    \cos a \cos b = \dfrac{1}{2}[\cos(a + b) + \cos(a - b)] \\
+                    \sin a \sin b = -\dfrac{1}{2}[\cos(a + b) - \cos(a - b)] \\
+                    \sin a \cos b = \dfrac{1}{2}[\sin(a + b) + \sin(a - b)] \\
+                    \end{array}
+                    \]
+                </p>
 
-<strong>Formules de l'angle moitié</strong>
-Pour t = tan(x/2) :
-\[
-\begin{array}{ll}
-\sin x = \dfrac{2t}{1 + t^2} & \cos x = \dfrac{1 - t^2}{1 + t^2} \\
-\tan x = \dfrac{2t}{1 - t^2} & \\
-\end{array}
-\]
+                <strong>Formules de l'angle moitié</strong>
+                <p>
+                    Pour t = tan(x/2) :
+                    \[
+                    \begin{array}{ll}
+                    \sin x = \dfrac{2t}{1 + t^2} & \cos x = \dfrac{1 - t^2}{1 + t^2} \\
+                    \tan x = \dfrac{2t}{1 - t^2} & \\
+                    \end{array}
+                    \]
+                </p>
 
-<strong>Somme vers Produit</strong>
-\[
-\begin{array}{ll}
-\cos p + \cos q = 2\cos\left(\dfrac{p + q}{2}\right)\cos\left(\dfrac{p - q}{2}\right) \\
-\sin p + \sin q = 2\sin\left(\dfrac{p + q}{2}\right)\cos\left(\dfrac{p - q}{2}\right) \\
-\cos p - \cos q = -2\sin\left(\dfrac{p + q}{2}\right)\sin\left(\dfrac{p - q}{2}\right) \\
-\sin p - \sin q = 2\cos\left(\dfrac{p + q}{2}\right)\sin\left(\dfrac{p - q}{2}\right) \\
-\end{array}
-\]
+                <strong>Somme vers Produit</strong>
+                <p>
+                    \[
+                    \begin{array}{ll}
+                    \cos p + \cos q = 2\cos\left(\dfrac{p + q}{2}\right)\cos\left(\dfrac{p - q}{2}\right) \\
+                    \sin p + \sin q = 2\sin\left(\dfrac{p + q}{2}\right)\cos\left(\dfrac{p - q}{2}\right) \\
+                    \cos p - \cos q = -2\sin\left(\dfrac{p + q}{2}\right)\sin\left(\dfrac{p - q}{2}\right) \\
+                    \sin p - \sin q = 2\cos\left(\dfrac{p + q}{2}\right)\sin\left(\dfrac{p - q}{2}\right) \\
+                    \end{array}
+                    \]
+                </p>
 
-<strong>Valeurs caractéristiques</strong>
-\[
-\cos x = 0 \iff x \in \pi/2 + \pi\mathbb{Z}
-\]
+                <strong>Valeurs caractéristiques</strong>
+                <p>
+                    \[
+                    \cos x = 0 \iff x \in \pi/2 + \pi\mathbb{Z}
+                    \]
+                    
+                    \[
+                    \sin x = 0 \iff x \in \pi\mathbb{Z}
+                    \]
+                </p>
 
-\[
-\sin x = 0 \iff x \in \pi\mathbb{Z}
-\]
+                <strong>Extrémas</strong> : \(\cos x = \pm 1\) et \(\sin x = \pm 1\) selon \(x\) modulo \(2\pi\)
+                <br><br>
+            
+                <strong>Angles associés</strong>
+                <p>
+                    \[
+                    \begin{array}{lll}
+                    \cos(\pi/2 - x) = \sin x & \sin(\pi/2 - x) = \cos x & \tan(\pi/2 - x) = 1/\tan x \\
+                    \cos(\pi - x) = -\cos x & \sin(\pi - x) = \sin x \\
+                    \cos(\pi + x) = -\cos x & \sin(\pi + x) = -\sin x \\
+                    \end{array}
+                    \]
+                </p>
 
-<strong>Extrémas</strong> : \(\cos x = \pm 1\) et \(\sin x = \pm 1\) selon \(x\) modulo \(2\pi\)
-<br><br>
-<strong>Angles associés</strong>
-\[
-\begin{array}{lll}
-\cos(\pi/2 - x) = \sin x & \sin(\pi/2 - x) = \cos x & \tan(\pi/2 - x) = 1/\tan x \\
-\cos(\pi - x) = -\cos x & \sin(\pi - x) = \sin x \\
-\cos(\pi + x) = -\cos x & \sin(\pi + x) = -\sin x \\
-\end{array}
-\]
+                <strong>Résolution d'équations</strong>
+                <p>
+                    \[
+                    \cos x = \cos \theta \iff x \equiv \theta \ [2\pi] \ \text{ou} \ x \equiv -\theta \ [2\pi]
+                    \]
+                    \[
+                    \sin x = \sin \theta \iff x \equiv \theta \ [2\pi] \ \text{ou} \ x \equiv \pi - \theta \ [2\pi]
+                    \]
+                </p>
 
-<strong>Résolution d'équations</strong>
-\[
-\cos x = \cos \theta \iff x \equiv \theta \ [2\pi] \ \text{ou} \ x \equiv -\theta \ [2\pi]
-\]
-\[
-\sin x = \sin \theta \iff x \equiv \theta \ [2\pi] \ \text{ou} \ x \equiv \pi - \theta \ [2\pi]
-\]
+                <strong>Valeurs remarquables</strong>
+                <p>
+                    \[
+                    \begin{array}{c|ccccc}
+                    x & 0 & \pi/6 & \pi/4 & \pi/3 & \pi/2 \\
+                    \hline
+                    \sin x & 0 & 1/2 & \sqrt{2}/2 & \sqrt{3}/2 & 1 \\
+                    \cos x & 1 & \sqrt{3}/2 & \sqrt{2}/2 & 1/2 & 0 \\
+                    \tan x & 0 & 1/\sqrt{3} & 1 & \sqrt{3} & \text{Und.} \\
+                    \end{array}
+                    \]
+                </p>
 
-<strong>Valeurs remarquables</strong>
-\[
-\begin{array}{c|ccccc}
-x & 0 & \pi/6 & \pi/4 & \pi/3 & \pi/2 \\
-\hline
-\sin x & 0 & 1/2 & \sqrt{2}/2 & \sqrt{3}/2 & 1 \\
-\cos x & 1 & \sqrt{3}/2 & \sqrt{2}/2 & 1/2 & 0 \\
-\tan x & 0 & 1/\sqrt{3} & 1 & \sqrt{3} & \text{Und.} \\
-\end{array}
-\]
-
-<strong>Séries de Fourier</strong>
-Pour une fonction T-périodique :
-\[
-f(t) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \left[a_n \cos(n\omega t) + b_n \sin(n\omega t)\right] \quad (\omega = 2\pi/T)
-\]
-\[
-a_n = \frac{2}{T} \int_{0}^{T} f(t)\cos(n\omega t) dt, \quad b_n = \frac{2}{T} \int_{0}^{T} f(t)\sin(n\omega t) dt
-\]
-Forme complexe :
-\[
-f(t) = \sum_{n=-\infty}^{\infty} c_n e^{in\omega t}, \quad c_n = \frac{1}{T} \int_{0}^{T} f(t)e^{-in\omega t} dt
-\]
-</p>
-<h3>Trigo hyperbolique</h3>
-                \[
-                \cosh x = \frac{e^x + e^{-x}}{2}, \quad \sinh x = \frac{e^x - e^{-x}}{2}, \quad \tanh x = \frac{\sinh x}{\cosh x}
-                \]
+                <strong>Séries de Fourier</strong>
+                <p>
+                    Pour une fonction T-périodique :
+                    \[
+                    f(t) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \left[a_n \cos(n\omega t) + b_n \sin(n\omega t)\right] \quad (\omega = 2\pi/T)
+                    \]
+                    \[
+                    a_n = \frac{2}{T} \int_{0}^{T} f(t)\cos(n\omega t) dt, \quad b_n = \frac{2}{T} \int_{0}^{T} f(t)\sin(n\omega t) dt
+                    \]
+                    Forme complexe :
+                    \[
+                    f(t) = \sum_{n=-\infty}^{\infty} c_n e^{in\omega t}, \quad c_n = \frac{1}{T} \int_{0}^{T} f(t)e^{-in\omega t} dt
+                    \]
+                </p>
+            </p>
+            
+            <h3>Trigo hyperbolique</h3>
+                <p>
+                    \[
+                    \cosh x = \frac{e^x + e^{-x}}{2}, \quad \sinh x = \frac{e^x - e^{-x}}{2}, \quad \tanh x = \frac{\sinh x}{\cosh x}
+                    \]
+                </p>
                 
                 <strong>Dérivées :</strong>
-                \[
-                (\cosh x)' = \sinh x, \quad (\sinh x)' = \cosh x, \quad (\tanh x)' = 1 - \tanh^2 x
-                \]
+                <p>
+                    \[
+                    (\cosh x)' = \sinh x, \quad (\sinh x)' = \cosh x, \quad (\tanh x)' = 1 - \tanh^2 x
+                    \]
+                </p>
                 
                 <strong>Identités fondamentales :</strong>
-                \[
-                \cosh^2 x - \sinh^2 x = 1, \quad 1 - \tanh^2 x = \frac{1}{\cosh^2 x}
-                \]
+                <p>
+                    \[
+                    \cosh^2 x - \sinh^2 x = 1, \quad 1 - \tanh^2 x = \frac{1}{\cosh^2 x}
+                    \]
+                </p>
                 
                 <strong>Formules d'addition :</strong>
-                \[
-                \begin{array}{ll}
-                \cosh(a+b) = \cosh a \cosh b + \sinh a \sinh b \\
-                \sinh(a+b) = \sinh a \cosh b + \cosh a \sinh b \\
-                \end{array}
-                \]
+                <p>
+                    \[
+                    \begin{array}{ll}
+                    \cosh(a+b) = \cosh a \cosh b + \sinh a \sinh b \\
+                    \sinh(a+b) = \sinh a \cosh b + \cosh a \sinh b \\
+                    \end{array}
+                    \]
+                </p>
                 
                 <strong>Fonctions inverses :</strong>
-                \[
-                \begin{array}{ll}
-                \text{argcosh } x = \ln(x + \sqrt{x^2 - 1}) \\
-                \text{argsinh } x = \ln(x + \sqrt{x^2 + 1}) \\
-                \text{argtanh } x = \frac{1}{2}\ln\left(\frac{1+x}{1-x}\right) \\
-                \end{array}
-                \]
-            </p>
+                <p>
+                    \[
+                    \begin{array}{ll}
+                    \text{argcosh } x = \ln(x + \sqrt{x^2 - 1}) \\
+                    \text{argsinh } x = \ln(x + \sqrt{x^2 + 1}) \\
+                    \text{argtanh } x = \frac{1}{2}\ln\left(\frac{1+x}{1-x}\right) \\
+                    \end{array}
+                    \]
+                </p>
+
 </div>
     </div>
 
