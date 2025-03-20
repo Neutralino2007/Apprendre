@@ -36,13 +36,13 @@
                 <strong>Relations fondamentales</strong>
                 <p>
                     Pour une réaction isotherme :
-                    \[ H_f - H_i = \Delta_r H^\ominus(T) \times \xi \]
+                    \[ H_f - H_i = \Delta_r H^{0}(T) \times \xi \]
                     
                     Pour une réaction isotherme isobare :
-                    \[ Q = \Delta_r H^\ominus(T) \times \xi \]
+                    \[ Q = \Delta_r H^{0}(T) \times \xi \]
                     
                     Pour une réaction adiabatique isobare :
-                    \[ \Delta_r H^\ominus(T_{\text{int}}) \times \xi + \int_{T_{\text{init}}}^{T_{\text{final}}} C_p n_{\text{ind}} dT = 0 \]
+                    \[ \Delta_r H^{0}(T_{\text{int}}) \times \xi + \int_{T_{\text{init}}}^{T_{\text{final}}} C_p n_{\text{ind}} dT = 0 \]
                 </p>
     
                 <strong>Potentiels thermodynamiques</strong>
@@ -60,11 +60,11 @@
                 <p>
                     \[ dG \triangleq -S dT + V dP + \sum \mu_i dn_i \]
                     \[ G = \sum n_i \mu_i \]
-                    \[ \mu_i \triangleq \mu_i^\ominus(T) + RT \ln a_i \]
+                    \[ \mu_i \triangleq \mu_i^{0}(T) + RT \ln a_i \]
                     
                     Définition des activités :
                     \[ a_i = \begin{cases} 
-                    \frac{P_i}{P^\ominus} & (\text{gaz parfait}) \\
+                    \frac{P_i}{P^{0}} & (\text{gaz parfait}) \\
                     \frac{|A_i|}{1\ \text{mol·L}^{-1}} & (\text{soluté dilué}) \\
                     1 & (\text{phase condensée})
                     \end{cases} \]
@@ -73,24 +73,24 @@
                 <strong>Équilibre chimique</strong>
                 <p>
                     \[ \Delta_r G \triangleq \frac{\partial G}{\partial \xi} \bigg|_{T,P} \]
-                    \[ \Delta_r G^\ominus(T) \triangleq \sum \nu_i \mu_i^\ominus \]
-                    \[ K^\ominus(T) \triangleq \exp\left(-\frac{\Delta_r G^\ominus}{RT}\right) \]
+                    \[ \Delta_r G^{0}(T) \triangleq \sum \nu_i \mu_i^{0} \]
+                    \[ K^{0}(T) \triangleq \exp\left(-\frac{\Delta_r G^{0}}{RT}\right) \]
                     
                     Relation de van 't Hoff :
-                    \[ \frac{d}{dT} (\ln K^\ominus) = \frac{\Delta_r H^\ominus}{RT^2} \]
+                    \[ \frac{d}{dT} (\ln K^{0}) = \frac{\Delta_r H^{0}}{RT^2} \]
                     
                     Quotient réactionnel :
                     \[ Q_r \triangleq \prod a_i^{\nu_i} \]
-                    \[ \Delta_r G = \Delta_r G^\ominus + RT \ln Q_r = RT \ln\frac{Q_r}{K^\ominus} \]
+                    \[ \Delta_r G = \Delta_r G^{0} + RT \ln Q_r = RT \ln\frac{Q_r}{K^{0}} \]
                 </p>
     
                 <strong>Conventions de notation</strong>
                 <p>
-                    Le symbole \(\triangleq\) indique une définition. Les grandeurs standard sont notées avec \(\ominus\).
+                    Le symbole \(\triangleq\) indique une définition. Les grandeurs standard sont notées avec \({0}\).
                     <br>Les relations (1) à (5) s'appliquent aussi aux :
                     <ul>
-                        <li>Grandeurs molaires standard : \(\mu^\ominus, H^\ominus, S^\ominus\)</li>
-                        <li>Grandeurs de réaction : \(\Delta_r G^\ominus, \Delta_r H^\ominus\)</li>
+                        <li>Grandeurs molaires standard : \(\mu^{0}, H^{0}, S^{0}\)</li>
+                        <li>Grandeurs de réaction : \(\Delta_r G^{0}, \Delta_r H^{0}\)</li>
                     </ul>
                 </p>
                     </p>
