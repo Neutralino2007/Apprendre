@@ -24,31 +24,86 @@
         <div style="height:10px;"></div>
         <!-- Boutons de navigation vers les catégories -->
         <div class="categories">
-            <button class="category-button" onclick="handleCategoryScroll('algebre')">Algèbre</button>
-            <select id="algebre-select">
-                <option value="1">Section 1</option>
+            <select id="categorie">
+                <option onclick="scrollToCategory('Thermochimie')">Thermochie</option>
             </select>
         </div>
-        
+
+        <div id="Thermochimie">
+            <h3>Formulaire du thermochimiste distingué</h3>
+            <p>(Adapté du pdf en question)</p>
+            
+                <strong>Relations fondamentales</strong>
+                <p>
+                    Pour une réaction isotherme :
+                    \[ H_f - H_i = \Delta_r H^\ominus(T) \times \xi \]
+                    
+                    Pour une réaction isotherme isobare :
+                    \[ Q = \Delta_r H^\ominus(T) \times \xi \]
+                    
+                    Pour une réaction adiabatique isobare :
+                    \[ \Delta_r H^\ominus(T_{\text{int}}) \times \xi + \int_{T_{\text{init}}}^{T_{\text{final}}} C_p n_{\text{ind}} dT = 0 \]
+                </p>
+    
+                <strong>Potentiels thermodynamiques</strong>
+                <p>
+                    \[ G \triangleq H - TS \tag{1} \]
+                    
+                    Dérivées fondamentales :
+                    \[ \frac{\partial G}{\partial T} \bigg|_P = -S \tag{2} \]
+                    \[ \frac{\partial}{\partial T} \left( \frac{G}{T} \right)_P = -\frac{H}{T^2} \tag{3} \]
+                    \[ \frac{\partial H}{\partial T} \bigg|_P \triangleq C_p \tag{4} \]
+                    \[ \frac{\partial S}{\partial T} \bigg|_P = \frac{C_p}{T} \tag{5} \]
+                </p>
+    
+                <strong>Grandeurs molaires et activités</strong>
+                <p>
+                    \[ dG \triangleq -S dT + V dP + \sum \mu_i dn_i \]
+                    \[ G = \sum n_i \mu_i \]
+                    \[ \mu_i \triangleq \mu_i^\ominus(T) + RT \ln a_i \]
+                    
+                    Définition des activités :
+                    \[ a_i = \begin{cases} 
+                    \frac{P_i}{P^\ominus} & (\text{gaz parfait}) \\
+                    \frac{|A_i|}{1\ \text{mol·L}^{-1}} & (\text{soluté dilué}) \\
+                    1 & (\text{phase condensée})
+                    \end{cases} \]
+                </p>
+    
+                <strong>Équilibre chimique</strong>
+                <p>
+                    \[ \Delta_r G \triangleq \frac{\partial G}{\partial \xi} \bigg|_{T,P} \]
+                    \[ \Delta_r G^\ominus(T) \triangleq \sum \nu_i \mu_i^\ominus \]
+                    \[ K^\ominus(T) \triangleq \exp\left(-\frac{\Delta_r G^\ominus}{RT}\right) \]
+                    
+                    Relation de van 't Hoff :
+                    \[ \frac{d}{dT} (\ln K^\ominus) = \frac{\Delta_r H^\ominus}{RT^2} \]
+                    
+                    Quotient réactionnel :
+                    \[ Q_r \triangleq \prod a_i^{\nu_i} \]
+                    \[ \Delta_r G = \Delta_r G^\ominus + RT \ln Q_r = RT \ln\frac{Q_r}{K^\ominus} \]
+                </p>
+    
+                <strong>Conventions de notation</strong>
+                <p>
+                    Le symbole \(\triangleq\) indique une définition. Les grandeurs standard sont notées avec \(\ominus\).
+                    <br>Les relations (1) à (5) s'appliquent aussi aux :
+                    <ul>
+                        <li>Grandeurs molaires standard : \(\mu^\ominus, H^\ominus, S^\ominus\)</li>
+                        <li>Grandeurs de réaction : \(\Delta_r G^\ominus, \Delta_r H^\ominus\)</li>
+                    </ul>
+                </p>
+                    </p>
+        </div>
     </div>
 
     <script>
-        function scrollToCategory(category, index) {
-    const categoryElement = document.getElementById(category);
-    if (categoryElement) {
-        const headings = categoryElement.getElementsByTagName('h3');
-        if (headings.length > index && index >= 0) {
-            headings[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
-        } else {
-            categoryElement.scrollIntoView({ behavior: 'smooth' });
-        }
+        
+        function scrollToCategory(category) {
+    const element = document.getElementById(category);
+    if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
     }
-}
-
-        function handleCategoryScroll(category) {
-    const select = document.getElementById(`${category}-select`);
-    const index = parseInt(select.value) - 1; // Convertir en index 0-based
-    scrollToCategory(category, index);
 }
         
         document.querySelectorAll('.menu a').forEach(link => {
